@@ -8,12 +8,12 @@ from datetime import datetime
 # ==========================================
 def get_connection():
     return mysql.connector.connect(
-        host=st.secrets["sc363305-project-personal-finance-system-oncloud.l.aivencloud.com"],
-        user=st.secrets["avnadmin"],
-        password=st.secrets["AVNS_nLVmRdG1OMPt3_aYHP3"],
-        database=st.secrets["defaultdb"],
-        port=st.secrets["17738"]
-    ) 
+        host=st.secrets["DB_HOST"],
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"],
+        database=st.secrets["DB_NAME"],
+        port=st.secrets["DB_PORT"]
+    )
 
 def generate_id(table, prefix, col):
     try:
@@ -349,3 +349,4 @@ with tab6:
     st.dataframe(df_search, use_container_width=True)
     conn.close()
     
+
